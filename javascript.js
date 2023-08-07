@@ -13,7 +13,7 @@ const Player = (name, level) => {
     }
     const attack = enemy =>{
         if (level < enemy.getLevel()){
-            damaage(1);
+            damage(1);
             console.log(`${name} has damaged ${enemy.getName()}`);
         }
     };
@@ -23,3 +23,6 @@ const Player = (name, level) => {
 const jimmie = Player(`Jim`, 10);
 const badGuy = Player(`Evil Jeffe`, 5);
 jimmie.attack(badGuy);
+
+const kevin = Player(`Kevin`, 15);
+
