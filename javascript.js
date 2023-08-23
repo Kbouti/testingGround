@@ -26,3 +26,5 @@ jimmie.attack(badGuy);
 
 const kevin = Player(`Kevin`, 15);
 
+//Spent several hours over the last 3 days learning to bundle modules with webpack. 
+//committing here to long SOME progress on github. 8.22
