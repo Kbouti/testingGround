@@ -4,21 +4,29 @@
 
 .tire {
     margin:20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tire0 {
     font-size: 20px;
+    width: 250px;
+
 }
 
 .tire1 {
     font-size: 25px;
+    width: 250px;
+
 }
 
 .tire2 {
     font-size: 30px;
+    width: 350px;
+
 }
 
 .tire3 {
     font-size: 30px;
+    width: 350px;
+
 }
