@@ -1,4 +1,24 @@
 .container{
-    color:blueviolet;
-    background-color: brown;
+}
+
+
+.tire {
+    margin:20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.tire0 {
+    font-size: 20px;
+}
+
+.tire1 {
+    font-size: 25px;
+}
+
+.tire2 {
+    font-size: 30px;
+}
+
+.tire3 {
+    font-size: 30px;
 }
