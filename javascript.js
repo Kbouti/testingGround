@@ -21,10 +21,4 @@ function createdivs(n, message) {
     }
 }
 
-createdivs(3, `CHECK TIRE PRESSURE BEFORE SENDING`);
-
-//Spent several hours over the last 3 days learning to bundle modules with webpack. 
-//committing here to long SOME progress on github. 8.22
-//logging some progress 8/27
-//Logging some progress on Bat in the spaceshipi project on scratch 9/10
-//Logging some progress on Bat in the spaceship project on scratch 9/11
+// createdivs(3, `CHECK TIRE PRESSURE BEFORE SENDING`);
