@@ -14,7 +14,7 @@ buttons.forEach((button) => {
     // Offset = check value of data-carousel-button. If next, return 1. else, return -1
     const slides = button
       .closest("[data-carousel]")
-      .querySelector("[data-slides");
+      .querySelector("[data-slides]");
 
     const activeSlide = slides.querySelector("[data-active]");
     let newIndex = [...slides.children].indexOf(activeSlide) + offset;
