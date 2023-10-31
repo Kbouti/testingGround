@@ -6,6 +6,10 @@
 // https://www.youtube.com/watch?v=9HcxHDS2w1s
 // Animated image carousel
 
+// 10/31 I did some reading on Odin curriculum and menu types, logging a commit
+// https://marvelapp.com/blog/hamburger-menu-alternatives-mobile-navigation/
+
+
 const buttons = document.querySelectorAll("[data-carousel-button]");
 
 buttons.forEach((button) => {
