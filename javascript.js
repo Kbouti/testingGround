@@ -47,3 +47,23 @@ function showError() {
   // Set the styling appropriately
   emailError.className = "error active";
 }
+
+
+// ***************************************************************************************
+// Promise exercise:
+// https://www.youtube.com/watch?v=DHvZLI7Db8E
+
+const p = new Promise((resolve, reject) => {
+  const a = 1 + 1;
+  if (a === 2) {
+    resolve("success");
+  } else {
+    reject("failed");
+  }
+});
+
+p.then((message) =>{
+  console.log(`this is in the "then": ${message}`)
+}).catch((message) => {
+  console.log(`this is in the "catch": ${message}`)
+})
