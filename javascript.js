@@ -83,9 +83,15 @@ function sumTo(x) {
 }
 
 function recursionSum(x) {
-  
-  if (x == 1){
-  return 1
+  if (x == 1) {
+    return 1;
   }
- return x + recursionSum(x - 1)
+  return x + recursionSum(x - 1);
+}
+
+function sumRange(n, total = 0) {
+  if (n <= 0) {
+    return total;
+  }
+  return sumRange(n - 1, total + n)
 }
