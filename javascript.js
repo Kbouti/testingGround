@@ -74,3 +74,16 @@ p.then((message) =>{
 // https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
 // MDN:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+function sumTo(x){
+  let n = 0;
+  for (let i = 0;i <= x; i++){
+    n += i;
+  }
+  console.log(n);
+  return n;
+}
+
+function recursionSum(x){
+  
+}
