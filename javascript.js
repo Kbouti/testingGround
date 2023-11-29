@@ -48,7 +48,6 @@ function showError() {
   emailError.className = "error active";
 }
 
-
 // ***************************************************************************************
 // Promise exercise:
 // https://www.youtube.com/watch?v=DHvZLI7Db8E
@@ -62,12 +61,11 @@ const p = new Promise((resolve, reject) => {
   }
 });
 
-p.then((message) =>{
-  console.log(`this is in the "then": ${message}`)
+p.then((message) => {
+  console.log(`this is in the "then": ${message}`);
 }).catch((message) => {
-  console.log(`this is in the "catch": ${message}`)
-})
-
+  console.log(`this is in the "catch": ${message}`);
+});
 
 // promise articles:
 // https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch2.md
@@ -75,15 +73,19 @@ p.then((message) =>{
 // MDN:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-function sumTo(x){
+function sumTo(x) {
   let n = 0;
-  for (let i = 0;i <= x; i++){
+  for (let i = 0; i <= x; i++) {
     n += i;
   }
   console.log(n);
   return n;
 }
 
-function recursionSum(x){
+function recursionSum(x) {
   
+  if (x == 1){
+  return 1
+  }
+ return x + recursionSum(x - 1)
 }
