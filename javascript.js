@@ -95,3 +95,14 @@ function sumRange(n, total = 0) {
   }
   return sumRange(n - 1, total + n)
 }
+
+function factorial(n){
+  if (n == 1)
+  return 1;
+else
+return n * factorial(n - 1);
+}
+
+// This is saying:
+// If n == 1, return 1. 
+// If it's not one, return n times the factorial of n minus 1
