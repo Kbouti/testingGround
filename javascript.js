@@ -125,7 +125,7 @@ function power(x, y) {
 }
 // ^^This works, but the second if statement isn't needed
 // This is the proper, given solution:
-function powerCorrect(x, y){
+function powerCorrect(x, y) {
   if (y == 0) {
     return 1;
   }
@@ -133,9 +133,42 @@ function powerCorrect(x, y){
 }
 
 // 3. Write a function that returns the factorial of a number
-function factorial(x){
-  if (x == 1){
-    return 1
-  } return x * factorial(x-1)
+function factorial(x) {
+  if (x == 1) {
+    return 1;
+  }
+  return x * factorial(x - 1);
 }
-// Awesome! 
+// Awesome!
+
+// 4. Write a function called "all" which accepts an array and a callback and returns true if every value in the array returns true when passed as a parameter to the callback function
+function all(array, callback) {
+  if (array.length == 0) {
+    return true;
+  }
+  const status = callback(array[0]);
+  if (status == true) {
+    array.shift();
+    return all(array, callback)
+  }
+  return false
+}
+
+// If there's nothing in the array, return true
+// else, take the first item in the array and try it in the callback.
+// if that returns false, return false
+// If that returns true, remove that element from the array and run the new array through the callback
+
+// I think this works!!  The code above is my solution, and matches with the given solution. 
+
+
+function isLessThanSeven(number){
+  if (number < 7){
+    return true;
+  }
+  return false
+}
+
+const result = all([1, 2, 3, 3, 9], isLessThanSeven);
+console.log(result);
+
