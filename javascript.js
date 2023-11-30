@@ -89,20 +89,42 @@ function recursionSum(x) {
   return x + recursionSum(x - 1);
 }
 
-function sumRange(n, total = 0) {
-  if (n <= 0) {
-    return total;
-  }
-  return sumRange(n - 1, total + n)
-}
+// function sumRange(n, total = 0) {
+//   if (n <= 0) {
+//     return total;
+//   }
+//   return sumRange(n - 1, total + n)
+// }
 
-function factorial(n){
-  if (n == 1)
-  return 1;
-else
-return n * factorial(n - 1);
+function factorial(n) {
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
 }
-
 // This is saying:
-// If n == 1, return 1. 
+// If n == 1, return 1.
 // If it's not one, return n times the factorial of n minus 1
+
+// Write a recursive function that sums the numbers from 1 to n
+function sumRange(n) {
+  if (n <= 1) return 1;
+  return n + sumRange(n - 1);
+}
+
+// write a function that takes a base and an exponent, returns the base to the power of the exponent
+function power(x, y) {
+  if (y == 0) {
+    return 1;
+  }
+  if (y == 1) {
+    return x;
+  }
+  return x * power(x, y - 1);
+}
+// ^^This works, but the second if statement isn't needed
+// This is the proper, given solution:
+function powerCorrect(x, y){
+  if (y == 0) {
+    return 1;
+  }
+  return x * power(x, y - 1);
+}
