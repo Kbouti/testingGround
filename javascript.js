@@ -107,12 +107,14 @@ function factorial1(n) {
 // If n == 1, return 1.
 // If it's not one, return n times the factorial of n minus 1
 
+// ****************************************************************************************************************************
 // 1. Write a recursive function that sums the numbers from 1 to n
 function sumRange(n) {
   if (n <= 1) return 1;
   return n + sumRange(n - 1);
 }
 
+// ****************************************************************************************************************************
 // 2. Write a function that takes a base and an exponent, returns the base to the power of the exponent
 function power(x, y) {
   if (y == 0) {
@@ -141,6 +143,7 @@ function factorial(x) {
 }
 // Awesome!
 
+// ****************************************************************************************************************************
 // 4. Write a function called "all" which accepts an array and a callback and returns true if every value in the array returns true when passed as a parameter to the callback function
 function all(array, callback) {
   if (array.length == 0) {
@@ -170,15 +173,26 @@ function isLessThanSeven(number) {
 const result = all([1, 2, 3, 3, 9], isLessThanSeven);
 console.log(result);
 
+// ****************************************************************************************************************************
 // 5. Write a function called productOfArray which takes in an array of numbers and returns the product of them all
-function sumArray(array) {
+function productOfArray(array) {
   if (array.length == 1) {
     return array[0];
   }
   const first = array[0];
   array.shift();
-  return first + sumArray(array);
+  return first * productOfArray(array);
 }
 
 // If there's only one number in the array, return it
 // If there's more than one number:
+// Save the first number as a new variable
+// Take the first number out of the array
+// Multiply the first number by the product of the rest and return the result
+// My code (above) works just fine, theirs is written slightly different but does the same thing. 
+// I have to remember that shift returns the first element, but changes the original array. That's how they make it work without storing the new variable - they extract the first number and multiply it by the product of the new array in one step:
+
+function theirProductFromArray(array){
+  if (array.length === 0) return 1;
+  return array.shift() * theirProductFromArray(array)
+}
