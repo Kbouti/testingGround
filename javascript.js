@@ -196,3 +196,13 @@ function theirProductFromArray(array){
   if (array.length === 0) return 1;
   return array.shift() * theirProductFromArray(array)
 }
+
+// ****************************************************************************************************************************
+// Write a function called "contains" that searches for a value in a nested object. It returns true if the object contains that value.
+
+function contains(object){
+
+//The reason the CSS isn't loading on my weather APP project is that I forgot to handle style loaders in webpack. 
+
+
+}
