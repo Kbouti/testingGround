@@ -149,9 +149,9 @@ function all(array, callback) {
   const status = callback(array[0]);
   if (status == true) {
     array.shift();
-    return all(array, callback)
+    return all(array, callback);
   }
-  return false
+  return false;
 }
 
 // If there's nothing in the array, return true
@@ -159,16 +159,26 @@ function all(array, callback) {
 // if that returns false, return false
 // If that returns true, remove that element from the array and run the new array through the callback
 
-// I think this works!!  The code above is my solution, and matches with the given solution. 
+// I think this works!!  The code above is my solution, and matches with the given solution.
 
-
-function isLessThanSeven(number){
-  if (number < 7){
+function isLessThanSeven(number) {
+  if (number < 7) {
     return true;
   }
-  return false
+  return false;
 }
-
 const result = all([1, 2, 3, 3, 9], isLessThanSeven);
 console.log(result);
 
+// 5. Write a function called productOfArray which takes in an array of numbers and returns the product of them all
+function sumArray(array) {
+  if (array.length == 1) {
+    return array[0];
+  }
+  const first = array[0];
+  array.shift();
+  return first + sumArray(array);
+}
+
+// If there's only one number in the array, return it
+// If there's more than one number:
