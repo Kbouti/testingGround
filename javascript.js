@@ -73,6 +73,9 @@ p.then((message) => {
 // MDN:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+// ************************************************************************************************************
+// Recursion practice:
+
 function sumTo(x) {
   let n = 0;
   for (let i = 0; i <= x; i++) {
@@ -96,21 +99,21 @@ function recursionSum(x) {
 //   return sumRange(n - 1, total + n)
 // }
 
-function factorial(n) {
+function factorial1(n) {
   if (n == 1) return 1;
-  return n * factorial(n - 1);
+  return n * factorial1(n - 1);
 }
 // This is saying:
 // If n == 1, return 1.
 // If it's not one, return n times the factorial of n minus 1
 
-// Write a recursive function that sums the numbers from 1 to n
+// 1. Write a recursive function that sums the numbers from 1 to n
 function sumRange(n) {
   if (n <= 1) return 1;
   return n + sumRange(n - 1);
 }
 
-// write a function that takes a base and an exponent, returns the base to the power of the exponent
+// 2. Write a function that takes a base and an exponent, returns the base to the power of the exponent
 function power(x, y) {
   if (y == 0) {
     return 1;
@@ -128,3 +131,11 @@ function powerCorrect(x, y){
   }
   return x * power(x, y - 1);
 }
+
+// 3. Write a function that returns the factorial of a number
+function factorial(x){
+  if (x == 1){
+    return 1
+  } return x * factorial(x-1)
+}
+// Awesome! 
