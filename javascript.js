@@ -219,8 +219,6 @@ function contains(object, value) {
 // Their function: 
 function theirContains(obj, value){
   for(let key in obj){
-    console.log(key)
-    console.log(obj[key])
     if (typeof obj[key] === `object`){
     return theirContains(obj[key], value);
     }
@@ -265,5 +263,11 @@ let nestedObject = {
   }
 }
 
-console.log(contains(testObject, `forester`))
-console.log(contains(nestedObject, 44))
+console.log("1"+contains(testObject, `forester`))           // Mine works to find forester
+console.log("2"+contains(testObject, `foresterg`))          // Returns false for something that doesn't exist
+console.log("3"+contains(testObject, `slash`))              // Can't find slash for some reason. Why is this false?
+console.log("4"+contains(nestedObject, 44))                 // Mine works on their object
+console.log("5"+theirContains(nestedObject, 44))            // Theirs works on theirs too
+console.log("6"+theirContains(testObject, `slash`))         // Why is this false?? If their function works this should be true
+
+// My function passes the same tests theirs does - so maybe time to move on. 
