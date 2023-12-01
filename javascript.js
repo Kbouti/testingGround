@@ -202,24 +202,30 @@ function theirProductFromArray(array) {
 
 function contains(object, value) {
   console.log("contains function called");
-
-let values = Object.values(object);
-if(typeof values[0] === object){
-  console.log(`found an object`)
+  console.log(`The value we're looking for is: ${value}`);
+  const values = Object.values(object);
+  for (let i = 0; i < values.length; i++) {
+    console.log(values[i])
+    if (typeof values[i] === "object") {
+      contains(values[i], value);
+    } else if (values[i] === value) {
+      return true;
+    }
+  }
+  // return false;
 }
+// I feel like I'm getting close..... It returns true for Kevin, but doesn't find any of the other values.
 
-}
 
 // open the object
-// check to see if the first value is an element, or a value. 
+// check to see if the first value is an element, or a value.
 // If it's a value, check if it is the value we're looking for
 // if it is the value we're looking for - return true
-// If it's not, check the next value 
+// If it's not, check the next value
 // if it's an object, call the function again on this object
 
-
-
 const testObject = {
+  name: "Kevin",
   vehicles: {
     cars: {
       suv: "forester",
@@ -227,7 +233,7 @@ const testObject = {
     bikes: {
       enduro: "slash",
       gravel: "checkpoint",
-      hardtail: "growle",
+      hardtail: "growler",
       ebike: {
         commuter: "crossrip",
       },
@@ -236,7 +242,8 @@ const testObject = {
 };
 
 // console.log(testObject);
-let values = Object.values(testObject);
+const values = Object.values(testObject);
 // console.log(values)
 
-contains(testObject, `slash`);
+const result24 = contains(testObject, "slash");
+console.log(result24);
