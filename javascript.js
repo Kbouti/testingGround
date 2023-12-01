@@ -200,30 +200,33 @@ function theirProductFromArray(array) {
 // ****************************************************************************************************************************
 // Write a function called "contains" that searches for a value in a nested object. It returns true if the object contains that value.
 
-function contains(object, value) {
-  console.log("contains function called");
-  console.log(typeof(value))
-  console.log(`The value we're looking for is: ${value}`);
-  let values = Object.values(object);
-  for (let i = 0; i < values.length; i++) {
-    console.log(values[i])
-    JSON.stringify(values[i])
-    console.log(JSON.stringify(values[i]))
-    if (values[i] === value) {
-      console.log(`i: ${i}`)
-      console.log(`values[i]: ${values[i]}`);
-      console.log(`value: ${value}`);
-      return true;
-    }
-  if (typeof values[i] === "object") {
-      contains(values[i], value);
-    }
-  // return false;
-}
-return false
-}
+// function contains(object, value) {
+//   console.log("contains function called");
+//   console.log(typeof(value))
+//   console.log(`The value we're looking for is: ${value}`);
+//   let values = Object.values(object);
+//   for (let i = 0; i < values.length; i++) {
+//     console.log(values[i])
+//     JSON.stringify(values[i])
+//     console.log(JSON.stringify(values[i]))
+//     if (values[i] === value) {
+//       console.log(`i: ${i}`)
+//       console.log(`values[i]: ${values[i]}`);
+//       console.log(`value: ${value}`);
+//       console.log(`true`);
+//       return true;
+//     }
+//   if (typeof values[i] === "object") {
+//     console.log(`type section triggered`)
+//       contains(values[i], value);
+//     }
+
+// }
+// return false
+// }
+
 // I feel like I'm getting close..... It returns true for Kevin, but doesn't find any of the other values.
-// Ok we've got a whooooole bunch of code up there now but I'm getting further from the answer. 
+// Ok we've got a whooooole bunch of code up there now but I'm getting further from the answer.
 // Problem is that after the first value in the object, it's not recognizing them as equal and returning true. It seems like it's a type error... like the strings I'm getting from Object.value() array aren't strings - they're objects
 
 // open the object
@@ -250,9 +253,38 @@ const testObject = {
   },
 };
 
-// // console.log(testObject);
-// const values = Object.values(testObject);
-// // console.log(values)
+function contains(object, value) {
+  const objectValues = Object.values(object);
+  for (let i = 0; i < objectValues.length; i++) {
+    if (typeof objectValues[i] === "object") {
+      return contains(objectValues[i], value);
+    }
+    if (objectValues[i] === value){
+      return true
+    }
+  } 
+  return false
+}
 
-const result24 = contains(testObject, "slash");
+const result24 = contains(testObject, "forester");
 console.log(result24);
+
+
+function theirContains(obj, value){
+  for(let key in obj){
+    console.log(key)
+    console.log(obj[key])
+    let temp = obj[key];
+    if (typeof temp === `object`){
+    return theirContains(obj[key], value);
+    }
+    if (obj[key] === value){
+      return true
+    }
+  }
+  return false
+}
+
+console.log(theirContains(testObject, "slash"))
+
+// OK, what the fuck?? Mine seems to work as well as theirs does - it'll recognize Kevin and Forester, but not slash? WHY????? What the fuck is going on here? 
