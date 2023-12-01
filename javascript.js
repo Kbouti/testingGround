@@ -202,20 +202,29 @@ function theirProductFromArray(array) {
 
 function contains(object, value) {
   console.log("contains function called");
+  console.log(typeof(value))
   console.log(`The value we're looking for is: ${value}`);
-  const values = Object.values(object);
+  let values = Object.values(object);
   for (let i = 0; i < values.length; i++) {
     console.log(values[i])
-    if (typeof values[i] === "object") {
-      contains(values[i], value);
-    } else if (values[i] === value) {
+    JSON.stringify(values[i])
+    console.log(JSON.stringify(values[i]))
+    if (values[i] === value) {
+      console.log(`i: ${i}`)
+      console.log(`values[i]: ${values[i]}`);
+      console.log(`value: ${value}`);
       return true;
     }
-  }
+  if (typeof values[i] === "object") {
+      contains(values[i], value);
+    }
   // return false;
 }
+return false
+}
 // I feel like I'm getting close..... It returns true for Kevin, but doesn't find any of the other values.
-
+// Ok we've got a whooooole bunch of code up there now but I'm getting further from the answer. 
+// Problem is that after the first value in the object, it's not recognizing them as equal and returning true. It seems like it's a type error... like the strings I'm getting from Object.value() array aren't strings - they're objects
 
 // open the object
 // check to see if the first value is an element, or a value.
@@ -241,9 +250,9 @@ const testObject = {
   },
 };
 
-// console.log(testObject);
-const values = Object.values(testObject);
-// console.log(values)
+// // console.log(testObject);
+// const values = Object.values(testObject);
+// // console.log(values)
 
 const result24 = contains(testObject, "slash");
 console.log(result24);
