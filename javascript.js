@@ -61,11 +61,11 @@ const p = new Promise((resolve, reject) => {
   }
 });
 
-p.then((message) => {
-  console.log(`this is in the "then": ${message}`);
-}).catch((message) => {
-  console.log(`this is in the "catch": ${message}`);
-});
+// p.then((message) => {
+//   console.log(`this is in the "then": ${message}`);
+// }).catch((message) => {
+//   console.log(`this is in the "catch": ${message}`);
+// });
 
 // promise articles:
 // https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch2.md
@@ -171,7 +171,7 @@ function isLessThanSeven(number) {
   return false;
 }
 const result = all([1, 2, 3, 3, 9], isLessThanSeven);
-console.log(result);
+// console.log(result);
 
 // ****************************************************************************************************************************
 // 5. Write a function called productOfArray which takes in an array of numbers and returns the product of them all
@@ -189,20 +189,54 @@ function productOfArray(array) {
 // Save the first number as a new variable
 // Take the first number out of the array
 // Multiply the first number by the product of the rest and return the result
-// My code (above) works just fine, theirs is written slightly different but does the same thing. 
+// My code (above) works just fine, theirs is written slightly different but does the same thing.
 // I have to remember that shift returns the first element, but changes the original array. That's how they make it work without storing the new variable - they extract the first number and multiply it by the product of the new array in one step:
 
-function theirProductFromArray(array){
+function theirProductFromArray(array) {
   if (array.length === 0) return 1;
-  return array.shift() * theirProductFromArray(array)
+  return array.shift() * theirProductFromArray(array);
 }
 
 // ****************************************************************************************************************************
 // Write a function called "contains" that searches for a value in a nested object. It returns true if the object contains that value.
 
-function contains(object){
+function contains(object, value) {
+  console.log("contains function called");
 
-//The reason the CSS isn't loading on my weather APP project is that I forgot to handle style loaders in webpack. 
-
+let values = Object.values(object);
+if(typeof values[0] === object){
+  console.log(`found an object`)
+}
 
 }
+
+// open the object
+// check to see if the first value is an element, or a value. 
+// If it's a value, check if it is the value we're looking for
+// if it is the value we're looking for - return true
+// If it's not, check the next value 
+// if it's an object, call the function again on this object
+
+
+
+const testObject = {
+  vehicles: {
+    cars: {
+      suv: "forester",
+    },
+    bikes: {
+      enduro: "slash",
+      gravel: "checkpoint",
+      hardtail: "growle",
+      ebike: {
+        commuter: "crossrip",
+      },
+    },
+  },
+};
+
+// console.log(testObject);
+let values = Object.values(testObject);
+// console.log(values)
+
+contains(testObject, `slash`);
