@@ -276,25 +276,32 @@ console.log(`6${theirContains(testObject, "slash")}`); // Why is this false?? If
 // 7. Given a multi-dimensional integer array, return the total number of integers stored inside this array
 
 function totalIntegers(array) {
-  console.log(array);
-  console.log(array.length);
   let count = 0;
-  console.log(`current count: ${count}`);
   for (const element of array) {
-    console.log(element);
     if (Array.isArray(element)) {
-      console.log("array found, triggering callback");
       count += totalIntegers(element);
     }
     if (typeof element === "number") {
-      console.log(`number found: ${element}`);
       count++;
-      console.log(`count increased, current count: ${count}`);
     }
   }
-  console.log(`Final count: ${count}`);
   return count;
 }
 const testArray = [[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]];
 
+// It works! here's their function just for giggles:
+
+function theirTotalIntegers(array){
+  if(array.length === 0) return 0;
+	let total = 0;
+	let first = array.shift();
+	if (Array.isArray(first)){
+		total += totalIntegers(first); 
+	} else if (Number.isInteger(first)) {
+		total += 1;
+	}
+	return total + totalIntegers(array);
+}
+
 console.log(totalIntegers(testArray));
+console.log(theirTotalIntegers(testArray));
