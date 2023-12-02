@@ -198,7 +198,7 @@ function theirProductFromArray(array) {
 }
 
 // ****************************************************************************************************************************
-// Write a function called "contains" that searches for a value in a nested object. It returns true if the object contains that value.
+// 6. Write a function called "contains" that searches for a value in a nested object. It returns true if the object contains that value.
 // I had trouble with this one - my solution passes the test the problem gave, but I couldn't get it to work with the nested object I made. I'll include my function , their function, my testObject, and their testObject:
 //
 
@@ -271,3 +271,21 @@ console.log("5"+theirContains(nestedObject, 44))            // Theirs works on t
 console.log("6"+theirContains(testObject, `slash`))         // Why is this false?? If their function works this should be true
 
 // My function passes the same tests theirs does - so maybe time to move on. 
+
+// ****************************************************************************************************************************
+// 7. Given a multi-dimensional integer array, return the total number of integers stored inside this array
+
+function totalIntegers(array){
+  let count = 0;
+  for (let element of array){
+    if (typeof element === "number"){
+      count++;
+    }
+    count += totalIntegers(element)
+  }
+  return count;
+}
+
+const testArray = [[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]];
+
+console.log(totalIntegers(testArray));
