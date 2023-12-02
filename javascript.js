@@ -291,17 +291,45 @@ const testArray = [[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]];
 
 // It works! here's their function just for giggles:
 
-function theirTotalIntegers(array){
-  if(array.length === 0) return 0;
-	let total = 0;
-	let first = array.shift();
-	if (Array.isArray(first)){
-		total += totalIntegers(first); 
-	} else if (Number.isInteger(first)) {
-		total += 1;
-	}
-	return total + totalIntegers(array);
+function theirTotalIntegers(array) {
+  if (array.length === 0) return 0;
+  let total = 0;
+  const first = array.shift();
+  if (Array.isArray(first)) {
+    total += totalIntegers(first);
+  } else if (Number.isInteger(first)) {
+    total += 1;
+  }
+  return total + totalIntegers(array);
 }
 
 console.log(totalIntegers(testArray));
 console.log(theirTotalIntegers(testArray));
+
+// ****************************************************************************************************************************
+// 8. Write a function that sums squares of numbers in list that may contain more lists
+
+function sumSquares(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      sum += sumSquares(array[i]);
+    } else {
+      sum += array[i] * array[i];
+    }
+  }
+  return sum;
+}
+
+const testArray1 = [1, 2, 3];
+const testArray2 = [[1, 2], 3];
+const testArray3 = [[[[[[[[1, 2], 3]]]]]]];
+const testArray4 = [10, [[10], 10], [10]];
+
+// console.log(sumSquares(testArray1));
+// console.log(sumSquares(testArray2));
+// console.log(sumSquares(testArray3));
+console.log(sumSquares(testArray4));
+
+// ****************************************************************************************************************************
+// 9. The function should return an array containing repetitions of the number argument. For instance, replicate(3, 5) should return [5,5,5]. If the times argument is negative, return an empty array.
