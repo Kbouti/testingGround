@@ -202,34 +202,34 @@ function theirProductFromArray(array) {
 // I had trouble with this one - my solution passes the test the problem gave, but I couldn't get it to work with the nested object I made. I'll include my function , their function, my testObject, and their testObject:
 //
 
-// My function: 
+// My function:
 function contains(object, value) {
   const objectValues = Object.values(object);
   for (let i = 0; i < objectValues.length; i++) {
     if (typeof objectValues[i] === "object") {
       return contains(objectValues[i], value);
     }
-    if (objectValues[i] === value){
-      return true
-    }
-  } 
-  return false
-}
-
-// Their function: 
-function theirContains(obj, value){
-  for(let key in obj){
-    if (typeof obj[key] === `object`){
-    return theirContains(obj[key], value);
-    }
-    if (obj[key] === value){
+    if (objectValues[i] === value) {
       return true;
     }
   }
   return false;
 }
 
-//My test object:
+// Their function:
+function theirContains(obj, value) {
+  for (const key in obj) {
+    if (typeof obj[key] === "object") {
+      return theirContains(obj[key], value);
+    }
+    if (obj[key] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// My test object:
 const testObject = {
   name: "Kevin",
   vehicles: {
@@ -248,44 +248,53 @@ const testObject = {
 };
 
 // Their test object:
-let nestedObject = {
+const nestedObject = {
   data: {
-      info: {
-          stuff: {
-              thing: {
-                  moreStuff: {
-                      magicNumber: 44,
-                      something: 'foo2'
-                  }
-              }
-          }
-      }
-  }
-}
+    info: {
+      stuff: {
+        thing: {
+          moreStuff: {
+            magicNumber: 44,
+            something: "foo2",
+          },
+        },
+      },
+    },
+  },
+};
 
-console.log("1"+contains(testObject, `forester`))           // Mine works to find forester
-console.log("2"+contains(testObject, `foresterg`))          // Returns false for something that doesn't exist
-console.log("3"+contains(testObject, `slash`))              // Can't find slash for some reason. Why is this false?
-console.log("4"+contains(nestedObject, 44))                 // Mine works on their object
-console.log("5"+theirContains(nestedObject, 44))            // Theirs works on theirs too
-console.log("6"+theirContains(testObject, `slash`))         // Why is this false?? If their function works this should be true
+console.log(`1${contains(testObject, "forester")}`); // Mine works to find forester
+console.log(`2${contains(testObject, "foresterg")}`); // Returns false for something that doesn't exist
+console.log(`3${contains(testObject, "slash")}`); // Can't find slash for some reason. Why is this false?
+console.log(`4${contains(nestedObject, 44)}`); // Mine works on their object
+console.log(`5${theirContains(nestedObject, 44)}`); // Theirs works on theirs too
+console.log(`6${theirContains(testObject, "slash")}`); // Why is this false?? If their function works this should be true
 
-// My function passes the same tests theirs does - so maybe time to move on. 
+// My function passes the same tests theirs does - so maybe time to move on.
 
 // ****************************************************************************************************************************
 // 7. Given a multi-dimensional integer array, return the total number of integers stored inside this array
 
-function totalIntegers(array){
+function totalIntegers(array) {
+  console.log(array);
+  console.log(array.length);
   let count = 0;
-  for (let element of array){
-    if (typeof element === "number"){
-      count++;
+  console.log(`current count: ${count}`);
+  for (const element of array) {
+    console.log(element);
+    if (Array.isArray(element)) {
+      console.log("array found, triggering callback");
+      count += totalIntegers(element);
     }
-    count += totalIntegers(element)
+    if (typeof element === "number") {
+      console.log(`number found: ${element}`);
+      count++;
+      console.log(`count increased, current count: ${count}`);
+    }
   }
+  console.log(`Final count: ${count}`);
   return count;
 }
-
-const testArray = [[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]];
+const testArray = [[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]];
 
 console.log(totalIntegers(testArray));
