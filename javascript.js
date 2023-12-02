@@ -333,3 +333,15 @@ console.log(sumSquares(testArray4));
 
 // ****************************************************************************************************************************
 // 9. The function should return an array containing repetitions of the number argument. For instance, replicate(3, 5) should return [5,5,5]. If the times argument is negative, return an empty array.
+
+function replicate(times, number){
+  if (times < 0){
+    return 0;
+  } else {
+    let array = [];
+    for (let i = 0; i < times;i++){
+array.push(number);
+    }
+  }
+}
+// This doesn't actually use recursion, rewrite so that each time it decrements the times value and calls the function again. 
