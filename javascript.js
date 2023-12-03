@@ -399,4 +399,4 @@ function fibsRec(number){
 }
 
 // Establish a 2-long array
-// if the array isn't long enough for the number requested, add one number to the array
+// if array.length = number, return array. Otherwise, add a number to the array and check again
