@@ -347,22 +347,45 @@ function replicate(times, number) {
 }
 // This doesn't actually use recursion, but it solves the problem...
 
-function myReplicate(times, number){
+function myReplicate(times, number) {
   let array = [];
-  if (times < 1){
+  if (times < 1) {
     return array;
   }
   array.push(number);
   times -= 1;
-  array = array.concat(myReplicate(times, number))
+  array = array.concat(myReplicate(times, number));
   return array;
 }
-// BOOM! I struggled on this because I couldn't think to concat the arrays. I was creating a new array each time and returning it, concat adds the new array to the old one. 
+// BOOM! I struggled on this because I couldn't think to concat the arrays. I was creating a new array each time and returning it, concat adds the new array to the old one.
 console.log(myReplicate(3, 5));
 console.log(myReplicate(12, 575));
 
-// Here's their solutioin: 
-function theirReplicate(times, number){
-	if(times <= 0) return [];
-	return [number].concat(replicate(times - 1, number));
+// Here's their solutioin:
+function theirReplicate(times, number) {
+  if (times <= 0) return [];
+  return [number].concat(replicate(times - 1, number));
 }
+
+// ******************************************************************************************************************
+// fibonacci assignment:
+
+function fibs(number) {
+  const array = [0, 1];
+  if (number === 0){
+    return [];
+  }
+  if (number === 1){
+    return [0];
+  }
+  for (let i = 0; i < number - 2; i++) {
+    const secondLast = array[array.length - 2];
+    const last = array[array.length - 1];
+    const newNumber = secondLast + last;
+    array.push(newNumber);
+  }
+  return array;
+}
+console.log(fibs(4));
+console.log(fibs(8));
+console.log(fibs(5));
