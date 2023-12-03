@@ -389,3 +389,14 @@ function fibs(number) {
 console.log(fibs(4));
 console.log(fibs(8));
 console.log(fibs(5));
+
+function fibsRec(number){
+  let array = [0,1]
+  if (number > array.length){
+    // add one number in the sequence
+    //
+  }
+}
+
+// Establish a 2-long array
+// if the array isn't long enough for the number requested, add one number to the array
