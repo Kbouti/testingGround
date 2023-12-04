@@ -372,10 +372,10 @@ function theirReplicate(times, number) {
 
 function fibs(number) {
   const array = [0, 1];
-  if (number === 0){
+  if (number === 0) {
     return [];
   }
-  if (number === 1){
+  if (number === 1) {
     return [0];
   }
   for (let i = 0; i < number - 2; i++) {
@@ -390,24 +390,39 @@ console.log(fibs(4));
 console.log(fibs(8));
 console.log(fibs(5));
 
-
-function fibsRec(array, number){
-  let length = array.length;
+function fibsRec(array, number) {
+  const { length } = array;
   console.log(`length: ${length}`);
-  if (length === number){
-    return array
-  } else {
-    let x = array[length -1];
-    let y = array[length - 2];
-    let z = x + y;
-    array.push(z);
-    return fibsRec(array, number);
+  if (length === number) {
+    return array;
   }
+  const x = array[length - 1];
+  const y = array[length - 2];
+  const z = x + y;
+  array.push(z);
+  return fibsRec(array, number);
 }
 
+console.log(fibsRec([0, 1], 2));
+console.log(fibsRec([0, 1], 3));
+console.log(fibsRec([0, 1], 4));
+console.log(fibsRec([0, 1], 8));
 
-console.log(fibsRec([0,1], 2));
-console.log(fibsRec([0,1], 3));
-console.log(fibsRec([0,1], 4));
-console.log(fibsRec([0,1], 8));
+function fibsRec2(number) {
+  if (number === 0) {
+    return [];
+  }
+  if (number === 1) {
+    return [0];
+  }
+  if (number === 2) {
+    return [0, 1];
+  }
+  const array = fibsRec2(number - 1);
+  array.push(array[array.length - 1] + array[array.length - 2]);
+  return array;
+}
 
+console.log(fibsRec2(2));
+console.log(fibsRec2(3));
+console.log(fibsRec2(8));
