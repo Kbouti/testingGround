@@ -426,3 +426,7 @@ function fibsRec2(number) {
 console.log(fibsRec2(2));
 console.log(fibsRec2(3));
 console.log(fibsRec2(8));
+
+// For Recursion - we want to break the problem into smaller problems. In this case, we're breaking it down to: add one more number to the array. Or, take the array of the number lower than this, then add one number. 
+// If F represents a function to calculate the fibonacci number at index n, then: 
+// F(n) = f(n-1) + f(n-2)
