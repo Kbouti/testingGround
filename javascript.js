@@ -390,13 +390,32 @@ console.log(fibs(4));
 console.log(fibs(8));
 console.log(fibs(5));
 
+// function fibsRec(number){
+//   let array = [0,1]
+//   let length = array.length
+//   if (length === number){
+//     return array;
+//   }
+//   let x = array[length - 1];
+//   let y = array[length - 2];
+//   let z = x + y;
+//   console.log(array);
+//   array.push(z);
+//   console.log(array);
+//   // fibsRec(number)
+// }
+
+
 function fibsRec(number){
-  let array = [0,1]
-  if (number > array.length){
-    // add one number in the sequence
-    //
+  if (array.length == number) {
+    return array
+  } else {
+    let array = [0, 1]
   }
 }
+
+console.log(fibsRec(2));
+console.log(fibsRec(3));
 
 // Establish a 2-long array
 // if array.length = number, return array. Otherwise, add a number to the array and check again
