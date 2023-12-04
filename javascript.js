@@ -390,32 +390,24 @@ console.log(fibs(4));
 console.log(fibs(8));
 console.log(fibs(5));
 
-// function fibsRec(number){
-//   let array = [0,1]
-//   let length = array.length
-//   if (length === number){
-//     return array;
-//   }
-//   let x = array[length - 1];
-//   let y = array[length - 2];
-//   let z = x + y;
-//   console.log(array);
-//   array.push(z);
-//   console.log(array);
-//   // fibsRec(number)
-// }
 
-
-function fibsRec(number){
-  if (array.length == number) {
+function fibsRec(array, number){
+  let length = array.length;
+  console.log(`length: ${length}`);
+  if (length === number){
     return array
   } else {
-    let array = [0, 1]
+    let x = array[length -1];
+    let y = array[length - 2];
+    let z = x + y;
+    array.push(z);
+    return fibsRec(array, number);
   }
 }
 
-console.log(fibsRec(2));
-console.log(fibsRec(3));
 
-// Establish a 2-long array
-// if array.length = number, return array. Otherwise, add a number to the array and check again
+console.log(fibsRec([0,1], 2));
+console.log(fibsRec([0,1], 3));
+console.log(fibsRec([0,1], 4));
+console.log(fibsRec([0,1], 8));
+
