@@ -443,8 +443,26 @@ function fib(n) {
 // Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology. 
 
 function mergeSort(array){
-  if (array.length > 1){
-    let newArray 
+  let arrayLength = array.length;
+  if (arrayLength > 1){
+    let arrayHalf;
+    if ((arrayLength % 2) !== 0){
+      arrayHalf = (arrayLength /2 ) - .5
+      console.log(`odd length array half: ${arrayHalf}`);
+    } else {
+      arrayHalf = arrayLength / 2;
+      console.log(`even length array half: ${arrayHalf}`);
+    }
+
+    let arrayA = array.slice(0,arrayHalf);
+    let arrayB = array.slice(arrayHalf);
+
+    console.log(`arrayA = ${arrayA}`);
+    console.log(`arrayB = ${arrayB}`);
+
+    // At this point I've successfully split the array into two smaller arrays. 
+    // The next step would be to call the recursive function on both of these arrays. 
+    // We also still need to establish a base case -- This should return the array when the length is only 1.
   }
 }
 
@@ -453,3 +471,8 @@ function mergeSort(array){
 // Apply the sort function to both halves of the original array
 // Merge those two sorted arrays into one
 // Return that new array
+
+
+
+let mergeTestArray = [5, 2, 3, 1, 6, 4, 7]
+console.log(mergeSort(mergeTestArray));
