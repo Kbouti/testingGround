@@ -437,3 +437,19 @@ function fib(n) {
   if (n < 2) return;
   return fib(n - 1) + fib(n - 2);
 }
+
+// ******************************************************************************************************************
+// Merge Sort:
+// Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology. 
+
+function mergeSort(array){
+  if (array.length > 1){
+    let newArray 
+  }
+}
+
+// pseudocode:
+// If the array is longer than 1, split the array in half
+// Apply the sort function to both halves of the original array
+// Merge those two sorted arrays into one
+// Return that new array
