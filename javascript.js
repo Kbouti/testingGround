@@ -428,7 +428,7 @@ console.log(fibsRec2(3));
 console.log(fibsRec2(8));
 
 // For Recursion - we want to break the problem into smaller problems. In this case, we're breaking it down to: add one more number to the array. Or, take the array of the number lower than this, then add one number.
-// Recursion keeps calling itself until it gets to the base case. Once it gets to the return case, it returns. 
+// Recursion keeps calling itself until it gets to the base case. Once it gets to the return case, it returns.
 // If F represents a function to calculate the fibonacci number at index n, then:
 // F(n) = f(n-1) + f(n-2)
 
@@ -440,35 +440,55 @@ function fib(n) {
 
 // ******************************************************************************************************************
 // Merge Sort:
-// Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology. 
-console.log(`************************`)
-function mergeSort(array){
-  let arrayLength = array.length;
-  if (array.length === 1) return array
-  if (arrayLength > 1){
+// Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology.
+console.log("************************");
+function mergeSort(array) {
+  const arrayLength = array.length;
+  if (array.length === 1) return array[0];
+  if (arrayLength > 1) {
     let arrayHalf;
-    if ((arrayLength % 2) !== 0){
-      arrayHalf = (arrayLength /2 ) - .5
+    if (arrayLength % 2 !== 0) {
+      arrayHalf = arrayLength / 2 - 0.5;
       console.log(`odd length array half: ${arrayHalf}`);
     } else {
       arrayHalf = arrayLength / 2;
       console.log(`even length array half: ${arrayHalf}`);
     }
 
-    let arrayA = array.slice(0,arrayHalf);
-    let arrayB = array.slice(arrayHalf);
+    const arrayA = [];
+    arrayA.push(array.slice(0, arrayHalf));
+
+    const arrayB = [];
+    arrayB.push(array.slice(arrayHalf));
 
     console.log(`arrayA = ${arrayA}`);
     console.log(`arrayB = ${arrayB}`);
 
-    let newA = mergeSort(arrayA);
-    let newB = mergeSort(arrayB);
+    const newA = mergeSort(arrayA);
+    const newB = mergeSort(arrayB);
 
-    console.log(`newA = ${newA}`);
-    console.log(`newB = ${newB}`);
+    // now we have to merge these two arrays.
 
-    // At this point I've successfully split the array into two smaller arrays. 
-    // The next step would be to call the recursive function on both of these arrays. 
+    let arrayC = [];
+    console.log(`Established arrayC: ${arrayC}`);
+
+    for (let a = 0; a < newA.length; a++) {
+      console.log("for loop initiated");
+
+      if (newA[a] < newB[0]) {
+        console.log(`element in array A is lower, adding ${newA[a]} to arrayC`);
+        arrayC.push(newA[a]);
+        console.log(`arrayC: ${arrayC}`);
+      } else {
+        console.log("Element in B is lower");
+        arrayC.push(newB.shift());
+        console.log(`arrayC: ${arrayC}`);
+      }
+    }
+    console.log(arrayC);
+    return arrayC;
+    // At this point I've successfully split the array into two smaller arrays.
+    // The next step would be to call the recursive function on both of these arrays.
     // We also still need to establish a base case -- This should return the array when the length is only 1.
   }
 }
@@ -479,7 +499,6 @@ function mergeSort(array){
 // Merge those two sorted arrays into one
 // Return that new array
 
-
-
-let mergeTestArray = [5, 2, 3, 1, 6, 4, 7]
+const mergeTestArray = [5, 2, 3, 1, 6, 4, 7];
+const mergeTestArray2 = [5, 2];
 console.log(mergeSort(mergeTestArray));
