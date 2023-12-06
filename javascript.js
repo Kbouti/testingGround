@@ -469,27 +469,36 @@ function mergeSort(array) {
 
     // now we have to merge these two arrays.
 
-    let arrayC = [];
+    const arrayC = [];
     console.log(`Established arrayC: ${arrayC}`);
 
     for (let a = 0; a < newA.length; a++) {
       console.log("for loop initiated");
+      console.log(`comparing ${newA[a]} < ${newB[0]}`);
+
+      // Ok, the problem is that once it's gone through arrayA, it keeps trying to compare to the next index of arrayA which is undefined, so it just adds the next from B, and the next, and the next. Without sorting the remaining B's.
+      // Also, 5 is getting left out because it loses it's comparison round, then doesn't get checked again.
+      // We've successfully split the array in two. Our issue is with the merging function 
 
       if (newA[a] < newB[0]) {
         console.log(`element in array A is lower, adding ${newA[a]} to arrayC`);
         arrayC.push(newA[a]);
         console.log(`arrayC: ${arrayC}`);
       } else {
-        console.log("Element in B is lower");
+        console.log(`Element in B is lower, adding ${newB[0]} to arrayC`);
         arrayC.push(newB.shift());
+
+        newB.push(newA[a])
         console.log(`arrayC: ${arrayC}`);
       }
     }
+
+
+    console.log(newA);
+    console.log(newB);
     console.log(arrayC);
+
     return arrayC;
-    // At this point I've successfully split the array into two smaller arrays.
-    // The next step would be to call the recursive function on both of these arrays.
-    // We also still need to establish a base case -- This should return the array when the length is only 1.
   }
 }
 
