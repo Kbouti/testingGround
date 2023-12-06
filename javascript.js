@@ -441,9 +441,10 @@ function fib(n) {
 // ******************************************************************************************************************
 // Merge Sort:
 // Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology. 
-
+console.log(`************************`)
 function mergeSort(array){
   let arrayLength = array.length;
+  if (array.length === 1) return array
   if (arrayLength > 1){
     let arrayHalf;
     if ((arrayLength % 2) !== 0){
@@ -459,6 +460,12 @@ function mergeSort(array){
 
     console.log(`arrayA = ${arrayA}`);
     console.log(`arrayB = ${arrayB}`);
+
+    let newA = mergeSort(arrayA);
+    let newB = mergeSort(arrayB);
+
+    console.log(`newA = ${newA}`);
+    console.log(`newB = ${newB}`);
 
     // At this point I've successfully split the array into two smaller arrays. 
     // The next step would be to call the recursive function on both of these arrays. 
