@@ -73,6 +73,9 @@ console.log(mergeSort(mergeTestArray2));
 function merge(array1, array2) {
   const array3 = [];
   console.log(`array1 length: ${array1.length}`);
+
+// Our current function checks which number is greater, but doesn't have logic to handle if they're the same. 
+
   if (array1.length > array2.length) {
     console.log(`array1 is longer`);
     console.log(array1[0])
@@ -88,6 +91,7 @@ function merge(array1, array2) {
 
         array3.push(array1[0]);
         array1.splice(1, 0);
+        // We aren't successfully altering the original array like we think we are. 
 
         console.log(
           `array1: ${array1}  --array2: ${array2}  --array3: ${array3}`,
