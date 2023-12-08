@@ -66,8 +66,8 @@
 // Merge those two sorted arrays into one
 // Return that new array
 
-const mergeTestArray = [5, 2, 3, 1, 6, 4, 7];
-const mergeTestArray2 = [8, 9];
+const mergeTestArray = [1, 4, 8, 15];
+const mergeTestArray2 = [3, 9, 12];
 // console.log(mergeSort(mergeTestArray2));
 
 function merge(array1, array2) {
@@ -80,7 +80,7 @@ function merge(array1, array2) {
     console.log("array1 is longer");
     console.log(array1[0]);
     console.log(array2[0]);
-    for (let i = 0; i < array1.length; i++) {
+    for (let i = 0; i < array1.length*3; i++) {
       if (array1[0] < array2[0]) {
         console.log(
           `array1: ${array1}  --array2: ${array2}  --array3: ${array3}`,
@@ -105,14 +105,14 @@ function merge(array1, array2) {
         );
 
         array3.push(array2[0]);
-        array2.splice(1);
+        array2 = array2.splice(1);
 
         console.log(
           `array1: ${array1}  --array2: ${array2}  --array3: ${array3}`,
         );
-      }
     }
   }
+}
 }
 
 // merge(mergeTestArray, mergeTestArray2);
@@ -143,8 +143,29 @@ function mergeSort(array) {
 
   // now in theory we have two sorted halves. Now we have to merge them. 
 
+
+
+// Do we need to more explicitly state that if the array is longer than 1 we need to mergeSort it again? 
+
+  let storageArray = [];
+  console.log(`storageArray: ${storageArray}`);
+  console.log(`sortedHalf1: ${sortedHalf1}`)
+  while (sortedHalf1.length > 0){
+    console.log(`longHalf`)
+  if (sortedHalf1[0] < sortedHalf2[0]){
+storageArray.push(sortedHalf1[0]);
+sortedHalf1 = sortedHalf1.splice(1);
+console.log(`storageAoiugiurray: ${storageArray}`);
+  } if (sortedHalf1[0] > sortedHalf2[0]){
+    storageArray.push(sortedHalf2[0]);
+    sortedHalf2 = sortedHalf2.splice(1);
+    console.log(`storaguviuyuuuuueArray: ${storageArray}`);
+  }
+}
 console.log(halfArray1)
 console.log(halfArray2)
+return storageArray
+
 }
 
 console.log(mergeSort([1]));
