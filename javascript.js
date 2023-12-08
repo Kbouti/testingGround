@@ -142,7 +142,8 @@ function mergeSort(array) {
   let sortedHalf2 = mergeSort(halfArray1);
 
   // now in theory we have two sorted halves. Now we have to merge them. 
-
+// This guy's youtube 6:11
+// https://www.youtube.com/watch?v=6pV2IF0fgKY
 
 
 // Do we need to more explicitly state that if the array is longer than 1 we need to mergeSort it again? 
@@ -150,18 +151,7 @@ function mergeSort(array) {
   let storageArray = [];
   console.log(`storageArray: ${storageArray}`);
   console.log(`sortedHalf1: ${sortedHalf1}`)
-  while (sortedHalf1.length > 0){
-    console.log(`longHalf`)
-  if (sortedHalf1[0] < sortedHalf2[0]){
-storageArray.push(sortedHalf1[0]);
-sortedHalf1 = sortedHalf1.splice(1);
-console.log(`storageAoiugiurray: ${storageArray}`);
-  } if (sortedHalf1[0] > sortedHalf2[0]){
-    storageArray.push(sortedHalf2[0]);
-    sortedHalf2 = sortedHalf2.splice(1);
-    console.log(`storaguviuyuuuuueArray: ${storageArray}`);
-  }
-}
+
 console.log(halfArray1)
 console.log(halfArray2)
 return storageArray
