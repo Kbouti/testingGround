@@ -131,6 +131,8 @@ function mergeSort(array) {
   }
 
   const { length } = array;
+  console.log(`length: ${length}`);
+
   let halfLength = length / 2;
   if (halfLength % 2 !== 1) {
     halfLength += 0.5;
@@ -143,16 +145,9 @@ function mergeSort(array) {
   console.log(halfArray2);
 
   let sortedHalf1 = mergeSort(halfArray1);
- let sortedHalf2 = mergeSort(halfArray2);
+  let sortedHalf2 = mergeSort(halfArray2);
 
-  console.log(`length: ${length}`);
-  // now in theory we have two sorted halves. Now we have to merge them.
-  // This guy's youtube 6:11
-  // https://www.youtube.com/watch?v=6pV2IF0fgKY
-
-  // Do we need to more explicitly state that if the array is longer than 1 we need to mergeSort it again?
-
-  const storageArray = [];
+  let storageArray = [];
   console.log(`storageArray: ${storageArray}`);
   console.log(`sortedHalf1: ${sortedHalf1}`);
 
@@ -160,29 +155,33 @@ function mergeSort(array) {
     console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`);
     console.log(`sortedHalf2[0]: ${sortedHalf2[0]}`);
     if (sortedHalf1[0] < sortedHalf2[0]) {
-      // Remove element from sortedHalf1 and push it to storageArray.
-
       console.log(`storageArray: ${storageArray}`);
       storageArray.push(sortedHalf1[0]);
       console.log(`storageArray: ${storageArray}`);
-
+      // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
       sortedHalf1 = sortedHalf1.splice(1, 0);
       console.log(`sortedHalf1: ${sortedHalf1}`);
-    } else if (sortedHalf1[0] > sortedHalf2[0]){
+      // The problem is here, with our splice call. It's still not functioning as desired.
+      // ***********************************************************************************************
+    } else if (sortedHalf1[0] > sortedHalf2[0]) {
       console.log(`storageArray: ${storageArray}`);
       storageArray.push(sortedHalf2[0]);
       console.log(`storageArray: ${storageArray}`);
-
+      // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
       sortedHalf2 = sortedHalf2.splice(1, 0);
       console.log(`sortedHalf1: ${sortedHalf1}`);
-    } else if (sortedHalf1[0] === undefined){
-      console.log(`caught undefined`)
-      storageArray.push(sortedHalf2[0])
-    } else if (sortedHalf2[0] === undefined){
-      console.log(`caught undefined`)
-      storageArray.push(sortedHalf1[0])
+      // (will also need to be fixed here)
+      // ***********************************************************************************************
+    } else if (sortedHalf1[0] === undefined) {
+      console.log("caught undefined");
+      storageArray.push(sortedHalf2[0]);
+      console.log(`storageArray: ${storageArray}`);
+    } else if (sortedHalf2[0] === undefined) {
+      console.log("caught undefined");
+      storageArray.push(sortedHalf1[0]);
+      console.log(`storageArray: ${storageArray}`);
     }
   }
 
@@ -190,6 +189,6 @@ function mergeSort(array) {
 }
 
 // console.log(mergeSort([1]));
-console.log(mergeSort([1, 2]));
-// console.log(mergeSort([1, 2, 3]));
+// console.log(mergeSort([1, 2]));
+console.log(mergeSort([2, 1, 3]));
 // console.log(mergeSort([1, 2, 3, 4, 5, 6]));
