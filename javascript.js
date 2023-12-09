@@ -191,5 +191,9 @@ function mergeSort(array) {
 
 // console.log(mergeSort([1]));
 // console.log(mergeSort([4, 2]));
-console.log(mergeSort([2, 1, 4, 3]));
+// console.log(mergeSort([2, 1, 4, 3]));
 // console.log(mergeSort([6, 3, 2, 4, 5, 1]));
+
+console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1]));
+// Returns [1, 2, 3, 4, 4, 4, 4]
+// Seems like the problem occurs the second time "caught undefined" occurs. I think our caught undefined function needs to modify the array after it takes an element and pushes to storageArray. 
