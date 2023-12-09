@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 // ******************************************************************************************************************
 // Merge Sort:
 // Build a function mergeSort that takes in an array and returns a sorted array, using recursive merge sort methodology.
@@ -141,8 +142,8 @@ function mergeSort(array) {
   console.log(halfArray1);
   console.log(halfArray2);
 
-  const sortedHalf1 = mergeSort(halfArray1);
-  const sortedHalf2 = mergeSort(halfArray2);
+  let sortedHalf1 = mergeSort(halfArray1);
+ let sortedHalf2 = mergeSort(halfArray2);
 
   console.log(`length: ${length}`);
   // now in theory we have two sorted halves. Now we have to merge them.
@@ -155,15 +156,34 @@ function mergeSort(array) {
   console.log(`storageArray: ${storageArray}`);
   console.log(`sortedHalf1: ${sortedHalf1}`);
 
+  for (let i = 0; i < length; i++) {
+    console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`);
+    console.log(`sortedHalf2[0]: ${sortedHalf2[0]}`);
+    if (sortedHalf1[0] < sortedHalf2[0]) {
+      // Remove element from sortedHalf1 and push it to storageArray.
 
-  for(let i = 0;i < length; i++){
-    console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`)
-    console.log(`sortedHalf2[0]: ${sortedHalf2[0]}`)
+      console.log(`storageArray: ${storageArray}`);
+      storageArray.push(sortedHalf1[0]);
+      console.log(`storageArray: ${storageArray}`);
 
+      console.log(`sortedHalf1: ${sortedHalf1}`);
+      sortedHalf1 = sortedHalf1.splice(1, 0);
+      console.log(`sortedHalf1: ${sortedHalf1}`);
+    } else if (sortedHalf1[0] > sortedHalf2[0]){
+      console.log(`storageArray: ${storageArray}`);
+      storageArray.push(sortedHalf2[0]);
+      console.log(`storageArray: ${storageArray}`);
 
-
-
-
+      console.log(`sortedHalf1: ${sortedHalf1}`);
+      sortedHalf2 = sortedHalf2.splice(1, 0);
+      console.log(`sortedHalf1: ${sortedHalf1}`);
+    } else if (sortedHalf1[0] === undefined){
+      console.log(`caught undefined`)
+      storageArray.push(sortedHalf2[0])
+    } else if (sortedHalf2[0] === undefined){
+      console.log(`caught undefined`)
+      storageArray.push(sortedHalf1[0])
+    }
   }
 
   return storageArray;
