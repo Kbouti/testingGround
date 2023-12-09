@@ -80,7 +80,7 @@ function merge(array1, array2) {
     console.log("array1 is longer");
     console.log(array1[0]);
     console.log(array2[0]);
-    for (let i = 0; i < array1.length*3; i++) {
+    for (let i = 0; i < array1.length * 3; i++) {
       if (array1[0] < array2[0]) {
         console.log(
           `array1: ${array1}  --array2: ${array2}  --array3: ${array3}`,
@@ -110,9 +110,9 @@ function merge(array1, array2) {
         console.log(
           `array1: ${array1}  --array2: ${array2}  --array3: ${array3}`,
         );
+      }
     }
   }
-}
 }
 
 // merge(mergeTestArray, mergeTestArray2);
@@ -126,7 +126,7 @@ const spliceArray = [1, 2, 3, 4, 5];
 
 function mergeSort(array) {
   if (array.length < 2) {
-    return array[0];
+    return array;
   }
 
   const { length } = array;
@@ -135,30 +135,41 @@ function mergeSort(array) {
     halfLength += 0.5;
   }
 
-  let halfArray1 = array.slice(0, halfLength);
-  let halfArray2 = array.slice(halfLength);
+  const halfArray1 = array.slice(0, halfLength);
+  const halfArray2 = array.slice(halfLength);
 
-  let sortedHalf1 = mergeSort(halfArray1);
-  let sortedHalf2 = mergeSort(halfArray1);
+  console.log(halfArray1);
+  console.log(halfArray2);
 
-  // now in theory we have two sorted halves. Now we have to merge them. 
-// This guy's youtube 6:11
-// https://www.youtube.com/watch?v=6pV2IF0fgKY
+  const sortedHalf1 = mergeSort(halfArray1);
+  const sortedHalf2 = mergeSort(halfArray2);
 
+  console.log(`length: ${length}`);
+  // now in theory we have two sorted halves. Now we have to merge them.
+  // This guy's youtube 6:11
+  // https://www.youtube.com/watch?v=6pV2IF0fgKY
 
-// Do we need to more explicitly state that if the array is longer than 1 we need to mergeSort it again? 
+  // Do we need to more explicitly state that if the array is longer than 1 we need to mergeSort it again?
 
-  let storageArray = [];
+  const storageArray = [];
   console.log(`storageArray: ${storageArray}`);
-  console.log(`sortedHalf1: ${sortedHalf1}`)
+  console.log(`sortedHalf1: ${sortedHalf1}`);
 
-console.log(halfArray1)
-console.log(halfArray2)
-return storageArray
 
+  for(let i = 0;i < length; i++){
+    console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`)
+    console.log(`sortedHalf2[0]: ${sortedHalf2[0]}`)
+
+
+
+
+
+  }
+
+  return storageArray;
 }
 
-console.log(mergeSort([1]));
+// console.log(mergeSort([1]));
 console.log(mergeSort([1, 2]));
-console.log(mergeSort([1, 2, 3]));
-console.log(mergeSort([1, 2, 3, 4, 5, 6]));
+// console.log(mergeSort([1, 2, 3]));
+// console.log(mergeSort([1, 2, 3, 4, 5, 6]));
