@@ -150,6 +150,7 @@ function mergeSort(array) {
   let storageArray = [];
   console.log(`storageArray: ${storageArray}`);
   console.log(`sortedHalf1: ${sortedHalf1}`);
+  console.log(`sortedHalf2: ${sortedHalf2}`);
 
   for (let i = 0; i < length; i++) {
     console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`);
@@ -160,7 +161,7 @@ function mergeSort(array) {
       console.log(`storageArray: ${storageArray}`);
       // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
-      sortedHalf1 = sortedHalf1.splice(1, 0);
+      sortedHalf1 = sortedHalf1.splice(1, 1);
       console.log(`sortedHalf1: ${sortedHalf1}`);
       // The problem is here, with our splice call. It's still not functioning as desired.
       // ***********************************************************************************************
@@ -170,7 +171,7 @@ function mergeSort(array) {
       console.log(`storageArray: ${storageArray}`);
       // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
-      sortedHalf2 = sortedHalf2.splice(1, 0);
+      sortedHalf2 = sortedHalf2.splice(1, 1);
       console.log(`sortedHalf1: ${sortedHalf1}`);
       // (will also need to be fixed here)
       // ***********************************************************************************************
@@ -189,6 +190,6 @@ function mergeSort(array) {
 }
 
 // console.log(mergeSort([1]));
-// console.log(mergeSort([1, 2]));
-console.log(mergeSort([2, 1, 3]));
-// console.log(mergeSort([1, 2, 3, 4, 5, 6]));
+// console.log(mergeSort([4, 2]));
+console.log(mergeSort([2, 1, 4, 3]));
+// console.log(mergeSort([6, 3, 2, 4, 5, 1]));
