@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable prefer-const */
 // ******************************************************************************************************************
 // Merge Sort:
@@ -129,29 +130,22 @@ function mergeSort(array) {
   if (array.length < 2) {
     return array;
   }
-
-  const { length } = array;
+  const length = array.length;
   console.log(`length: ${length}`);
-
   let halfLength = length / 2;
   if (halfLength % 2 !== 1) {
     halfLength += 0.5;
   }
-
   const halfArray1 = array.slice(0, halfLength);
   const halfArray2 = array.slice(halfLength);
-
   console.log(halfArray1);
   console.log(halfArray2);
-
   let sortedHalf1 = mergeSort(halfArray1);
   let sortedHalf2 = mergeSort(halfArray2);
-
   let storageArray = [];
   console.log(`storageArray: ${storageArray}`);
   console.log(`sortedHalf1: ${sortedHalf1}`);
   console.log(`sortedHalf2: ${sortedHalf2}`);
-
   for (let i = 0; i < length; i++) {
     console.log(`sortedHalf1[0]: ${sortedHalf1[0]}`);
     console.log(`sortedHalf2[0]: ${sortedHalf2[0]}`);
@@ -159,33 +153,30 @@ function mergeSort(array) {
       console.log(`storageArray: ${storageArray}`);
       storageArray.push(sortedHalf1[0]);
       console.log(`storageArray: ${storageArray}`);
-      // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
       sortedHalf1 = sortedHalf1.splice(1);
       console.log(`sortedHalf1: ${sortedHalf1}`);
-      // The problem is here, with our splice call. It's still not functioning as desired.
-      // ***********************************************************************************************
     } else if (sortedHalf1[0] > sortedHalf2[0]) {
       console.log(`storageArray: ${storageArray}`);
       storageArray.push(sortedHalf2[0]);
       console.log(`storageArray: ${storageArray}`);
-      // ***********************************************************************************************
-      console.log(`sortedHalf1: ${sortedHalf1}`);
+      console.log(`sortedHalf2: ${sortedHalf2}`);
       sortedHalf2 = sortedHalf2.splice(1);
-      console.log(`sortedHalf1: ${sortedHalf1}`);
-      // (will also need to be fixed here)
-      // ***********************************************************************************************
+      console.log(`sortedHalf2: ${sortedHalf2}`);
     } else if (sortedHalf1[0] === undefined) {
       console.log("caught undefined");
       storageArray.push(sortedHalf2[0]);
       console.log(`storageArray: ${storageArray}`);
+      sortedHalf2 = sortedHalf2.splice(1);
+      console.log(`sortedHalf2: ${sortedHalf2}`);
     } else if (sortedHalf2[0] === undefined) {
       console.log("caught undefined");
       storageArray.push(sortedHalf1[0]);
       console.log(`storageArray: ${storageArray}`);
+      sortedHalf1 = sortedHalf1.splice(1);
+      console.log(`sortedHalf1: ${sortedHalf1}`);
     }
   }
-
   return storageArray;
 }
 
@@ -193,14 +184,7 @@ function mergeSort(array) {
 // console.log(mergeSort([4, 2]));
 // console.log(mergeSort([2, 1, 4, 3]));
 // console.log(mergeSort([6, 3, 2, 4, 5, 1]));
-
 console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1]));
-// This works! but the length: 6 array doesn't......
-
-// Seems like the problem occurs the second time "caught undefined" occurs. I think our caught undefined function needs to modify the array after it takes an element and pushes to storageArray. 
-
-
-
 
 let splicetest1 = [1, 2, 3, 4, 5, 6];
 let splicetest2 = [1, 2, 3, 4, 5, 6];
