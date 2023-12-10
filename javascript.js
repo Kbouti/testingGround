@@ -161,7 +161,7 @@ function mergeSort(array) {
       console.log(`storageArray: ${storageArray}`);
       // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
-      sortedHalf1 = sortedHalf1.splice(1, 1);
+      sortedHalf1 = sortedHalf1.splice(1);
       console.log(`sortedHalf1: ${sortedHalf1}`);
       // The problem is here, with our splice call. It's still not functioning as desired.
       // ***********************************************************************************************
@@ -171,7 +171,7 @@ function mergeSort(array) {
       console.log(`storageArray: ${storageArray}`);
       // ***********************************************************************************************
       console.log(`sortedHalf1: ${sortedHalf1}`);
-      sortedHalf2 = sortedHalf2.splice(1, 1);
+      sortedHalf2 = sortedHalf2.splice(1);
       console.log(`sortedHalf1: ${sortedHalf1}`);
       // (will also need to be fixed here)
       // ***********************************************************************************************
@@ -195,7 +195,8 @@ function mergeSort(array) {
 // console.log(mergeSort([6, 3, 2, 4, 5, 1]));
 
 console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1]));
-// Returns [1, 2, 3, 4, 4, 4, 4]
+// This works! but the length: 6 array doesn't......
+
 // Seems like the problem occurs the second time "caught undefined" occurs. I think our caught undefined function needs to modify the array after it takes an element and pushes to storageArray. 
 
 
