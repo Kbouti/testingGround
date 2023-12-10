@@ -5,8 +5,7 @@ function mergeSort(array) {
   if (array.length < 2) {
     return array;
   }
-  const length = array.length;
-  let halfLength = length / 2;
+  let halfLength = array.length / 2;
   if (halfLength % 2 !== 1) {
     halfLength += 0.5;
   }
@@ -15,7 +14,7 @@ function mergeSort(array) {
   let sortedHalf1 = mergeSort(halfArray1);
   let sortedHalf2 = mergeSort(halfArray2);
   let storageArray = [];
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (sortedHalf1[0] < sortedHalf2[0]) {
       storageArray.push(sortedHalf1[0]);
       sortedHalf1 = sortedHalf1.splice(1);
