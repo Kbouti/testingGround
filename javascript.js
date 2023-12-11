@@ -27,7 +27,7 @@ function mergeSort(array) {
     } else if (sortedHalf2[0] === undefined) {
       storageArray.push(sortedHalf1[0]);
       sortedHalf1 = sortedHalf1.splice(1);
-    } else if (sortedHalf1[0] == sortedHalf2[0]){
+    } else if (sortedHalf1[0] === sortedHalf2[0]){
       storageArray.push(sortedHalf1[0]);
       sortedHalf1 = sortedHalf1.splice(1);
     }
@@ -44,3 +44,4 @@ console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1]));
 console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1, 2, 5]));
 console.log(mergeSort([6, 13, 62, 8, 47, 4, 5, 100, 54, 456, 78, 35, 44]));
 
+// Read about big O 12/11/23
