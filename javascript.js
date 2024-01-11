@@ -47,3 +47,4 @@ console.log(mergeSort([6, 13, 62, 8, 47, 4, 5, 100, 54, 456, 78, 35, 44]));
 // Read about big O 12/11/23
 // logging commit
 // Completed reading on data structures 12/12/23
+// Completed hash reading 1/10/24
