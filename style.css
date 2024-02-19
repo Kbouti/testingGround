@@ -48,3 +48,10 @@ input:focus:invalid {
 .error.active {
   padding: 0.3em;
 }
+
+
+.submitButton:hover{
+  background-color: aquamarine;
+  transition-property: background-color;
+  transition-duration:2s;
+}
