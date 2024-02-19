@@ -1,7 +1,5 @@
 /* eslint-disable quotes */
-const element = document.getElementById("watchMe");
 
-element.className = "slidein";
 
 function listener(event) {
   const l = document.createElement("li");
@@ -11,6 +9,7 @@ function listener(event) {
       break;
     case "animationend":
       l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
+      break;
     case "animationiteration":
       l.textContent = `New loop started at time ${event.elapsedTime}`;
       break;
@@ -19,13 +18,14 @@ function listener(event) {
 }
 
 
+
+const element = document.getElementById("watchme");
 element.addEventListener("animationstart", listener, false);
 element.addEventListener("animationend", listener, false);
 element.addEventListener("animationiteration", listener, false);
 
+element.className = "slidein";
 
 
 
 
-
-// For some reason it's never triggering the "end" message. Ij should register that the iteration is over, instead it's saying that it starts a new loop
