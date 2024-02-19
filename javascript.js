@@ -1,52 +1,31 @@
-/* eslint-disable prefer-destructuring */
-/* eslint-disable prefer-const */
+/* eslint-disable quotes */
+const element = document.getElementById("watchMe");
 
-function mergeSort(array) {
-  if (array.length < 2) {
-    return array;
+element.className = "slidein";
+
+function listener(event) {
+  const l = document.createElement("li");
+  switch (event.type) {
+    case "animationstart":
+      l.textContent = `Started: elapsed time is ${event.elapsedTime}`;
+      break;
+    case "animationend":
+      l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
+    case "animationiteration":
+      l.textContent = `New loop started at time ${event.elapsedTime}`;
+      break;
   }
-  let halfLength = array.length / 2;
-  if (halfLength % 2 !== 1) {
-    halfLength += 0.5;
-  }
-  const halfArray1 = array.slice(0, halfLength);
-  const halfArray2 = array.slice(halfLength);
-  let sortedHalf1 = mergeSort(halfArray1);
-  let sortedHalf2 = mergeSort(halfArray2);
-  let storageArray = [];
-  for (let i = 0; i < array.length; i++) {
-    if (sortedHalf1[0] < sortedHalf2[0]) {
-      storageArray.push(sortedHalf1[0]);
-      sortedHalf1 = sortedHalf1.splice(1);
-    } else if (sortedHalf1[0] > sortedHalf2[0]) {
-      storageArray.push(sortedHalf2[0]);
-      sortedHalf2 = sortedHalf2.splice(1);
-    } else if (sortedHalf1[0] === undefined) {
-      storageArray.push(sortedHalf2[0]);
-      sortedHalf2 = sortedHalf2.splice(1);
-    } else if (sortedHalf2[0] === undefined) {
-      storageArray.push(sortedHalf1[0]);
-      sortedHalf1 = sortedHalf1.splice(1);
-    } else if (sortedHalf1[0] === sortedHalf2[0]){
-      storageArray.push(sortedHalf1[0]);
-      sortedHalf1 = sortedHalf1.splice(1);
-    }
-  }
-  return storageArray;
+  document.getElementById("output").appendChild(l);
 }
 
-// console.log(mergeSort([1]));
-// console.log(mergeSort([4, 2]));
-// console.log(mergeSort([2, 1, 4, 3]));
-// console.log(mergeSort([6, 3, 2, 4, 5, 1]));
-console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1]));
 
-console.log(mergeSort([6, 3, 2, 8, 7, 4, 5, 1, 2, 5]));
-console.log(mergeSort([6, 13, 62, 8, 47, 4, 5, 100, 54, 456, 78, 35, 44]));
+element.addEventListener("animationstart", listener, false);
+element.addEventListener("animationend", listener, false);
+element.addEventListener("animationiteration", listener, false);
 
-// Read about big O 12/11/23
-// logging commit
-// Completed reading on data structures 12/12/23
-// Completed hash reading 1/10/24
-// Completed reading on CCSS transform property 2/17/24
-// More reading on CSS 2/18/24
+
+
+
+
+
+// For some reason it's never triggering the "end" message. Ij should register that the iteration is over, instead it's saying that it starts a new loop
