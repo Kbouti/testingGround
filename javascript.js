@@ -14,6 +14,6 @@ function showHide() {
   }
 }
 
-
+console.log(`Happy Birthday`);
 
 // Test edit
