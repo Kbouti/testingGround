@@ -1,50 +1,27 @@
-html {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
   height: 100vh;
+
+display: flex;
+
+
 }
 
-div {
-  font-size: 1.6rem;
-  padding: 20px;
-  border: 3px solid red;
-  border-radius: 20px;
-  width: 480px;
-  opacity: 0;
-  display: none;
+.photoContainer {
+  width: 30%;
+height: auto;
+border: 3px solid red;
+float: left;
 }
 
-/* Animation classes */
-
-div.fade-in {
-  display: block;
-  animation: fade-in 0.7s ease-in forwards;
+img {
+  width: 100%;
+  height: auto;
 }
 
-div.fade-out {
-  animation: fade-out 0.7s ease-out forwards;
-}
-
-/* Animation keyframes */
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    display: none;
-  }
-
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-
-  100% {
-    opacity: 0;
-    display: none;
-  }
-}
