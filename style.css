@@ -11,13 +11,23 @@ body {
 
 
 img {
-width: 20rem;
+width: 15rem;
 display: inline;
 height: auto;
 margin-bottom: auto;
 float: left;
 margin: 1rem;
+
+transform: scale(130%) translate(-20%, -20%);
 }
+
+
+
+/* **************************************************************************
+What if I used a blank placeholder image in the card to create the float/wrap affect -- Then place the main image  with position absolute....
+************************************************************************** */
+
+
 
 .photoContainer {
   float: left;
