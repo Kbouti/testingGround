@@ -16,11 +16,14 @@ display: inline;
 height: auto;
 margin-bottom: auto;
 float: left;
+margin: 1rem;
 }
 
 .photoContainer {
   float: left;
   display: inline;
+  border: 2px solid peru;
+  width: 20rem;
 
 }
 
@@ -32,8 +35,14 @@ float: left;
   flex-direction: column;
 
 }
+header {
+  border: 2px solid orange;
+  text-align: end;
+}
+
 
 p {
+  
   width: 100%;
   border: 2px solid palegreen;
 }
