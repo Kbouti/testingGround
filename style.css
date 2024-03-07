@@ -11,14 +11,14 @@ body {
 
 
 img {
-width: 15rem;
+width: 25rem;
 display: inline;
-height: auto;
+height: 50rem;
 margin-bottom: auto;
 float: left;
 margin: 1rem;
-
-transform: scale(130%) translate(-20%, -20%);
+object-fit:cover;
+/* fill, cover, contain all options for object-fit img */
 }
 
 
