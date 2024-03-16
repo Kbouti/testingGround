@@ -23,11 +23,6 @@ object-fit:cover;
 
 
 
-/* **************************************************************************
-What if I used a blank placeholder image in the card to create the float/wrap affect -- Then place the main image  with position absolute....
-************************************************************************** */
-
-
 
 .photoContainer {
   float: left;
