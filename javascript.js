@@ -9,3 +9,5 @@ console.log(`Happy Birthday`);
 
 // Read about props and such https://react.dev/learn/passing-props-to-a-component
 // 3/18/24
+
+// Lots and lots of React excercise work on 3/20/24
