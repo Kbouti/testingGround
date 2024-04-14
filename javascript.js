@@ -15,3 +15,20 @@ fetch(
   const URLresponse = response.url;
 image.src = URLresponse;
 })
+
+
+
+console.log(`sup motherfucker`);
+
+
+const x = 2;
+let y = 4;
+function update(arg) {
+  return Math.random() + y * arg;
+}
+y = 2;
+// What can we put here to make the result always be between 6 and 7??
+y = 3
+
+const result = update(x);
+console.log(`result: ${result}`);
