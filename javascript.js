@@ -10,8 +10,8 @@ fetch(
   return response.json();
 })
 .then(function(response){
-  console.log(response);
-  console.log(`response.url: ${response.url}`)
+  // console.log(response);
+  // console.log(`response.url: ${response.url}`)
   const URLresponse = response.url;
 image.src = URLresponse;
 })
@@ -21,14 +21,14 @@ image.src = URLresponse;
 console.log(`sup motherfucker`);
 
 
-const x = 2;
-let y = 4;
-function update(arg) {
-  return Math.random() + y * arg;
-}
-y = 2;
-// What can we put here to make the result always be between 6 and 7??
-y = 3
+const cards = [
+  {name:"Kevin",
+age: 33,
+},{name:"Lindsay",age:31},{name:"Chris",age:33}
+]
+console.log(cards)
+console.log(cards[0])
 
-const result = update(x);
-console.log(`result: ${result}`);
+const firstPerson = cards.splice(0,1);
+
+console.log(firstPerson)
