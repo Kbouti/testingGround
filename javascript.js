@@ -32,3 +32,5 @@ console.log(cards[0])
 const firstPerson = cards.splice(0,1);
 
 console.log(firstPerson)
+
+// Begin class reading
