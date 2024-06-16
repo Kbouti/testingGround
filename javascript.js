@@ -1,36 +1,13 @@
-// ********************************************************************************************
-// posting a random dog picture with random.dog api:
-// https://publicapis.io/random-dog-animals-api
-// ********************************************************************************************
+// How many times has fathers day landed on June 16 since 1959
+// Fathers day is the third sunday in june
 
-const image = document.getElementsByClassName("giphy")[0];
-fetch(
-  "https://random.dog/woof.json"
-).then(function(response) {
-  return response.json();
-})
-.then(function(response){
-  // console.log(response);
-  // console.log(`response.url: ${response.url}`)
-  const URLresponse = response.url;
-image.src = URLresponse;
-})
+let firstDay = new Date("1959-06-16");
+console.log(firstDay)
 
+function addDays(date, days){
+  const newDate = new Date(date);
+  newDate.setDate(date.getDate() + days);
+  return newDate;
+}
 
-
-console.log(`sup motherfucker`);
-
-
-const cards = [
-  {name:"Kevin",
-age: 33,
-},{name:"Lindsay",age:31},{name:"Chris",age:33}
-]
-console.log(cards)
-console.log(cards[0])
-
-const firstPerson = cards.splice(0,1);
-
-console.log(firstPerson)
-
-// Begin class reading
+console.log(addDays(firstDay, 1));
