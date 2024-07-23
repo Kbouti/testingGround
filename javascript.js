@@ -21,3 +21,4 @@ console.log(addDays(firstDay, 1));
 // Log SQL reading 7/19
 // Log SQL totorial progress 7/20
 // Log SQL tutorial progress 7/21
+// Log SQL tutorial progress 7/22
