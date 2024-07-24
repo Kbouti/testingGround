@@ -23,3 +23,5 @@ console.log(addDays(firstDay, 1));
 // Log SQL tutorial progress 7/21
 // Log SQL tutorial progress 7/22
 // Continued sql training 7/23
+// Continued sql training 7/24
+// Marked database section complete
