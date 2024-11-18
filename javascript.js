@@ -14,7 +14,8 @@ function addDays(date, days){
 console.log(addDays(firstDay, 1));
 
 
-
+const timestamp = new Date(now);
+console.log(`timestamp: ${timestamp}`);
 
 
 
